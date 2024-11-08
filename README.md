@@ -1,12 +1,14 @@
 # baggage processing
 
-## layout
+## Structure
 
 - Data
   - dao
   - model
   - repository
+    
 - di(dependency injection)
+  
 - ui
   - screen
   - theme
@@ -136,4 +138,7 @@ fun BaggageInputScreen(
     val bsmList by viewModel.bsmList.collectAsState()
     ...
 }
+
 ```
+
+![螢幕擷取畫面 2024-11-08 150923](https://github.com/user-attachments/assets/f8686ae7-8942-4a75-bbf1-a8379c382384)
