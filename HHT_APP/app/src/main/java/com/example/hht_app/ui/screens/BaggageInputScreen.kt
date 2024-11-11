@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -113,15 +114,27 @@ fun BaggageInputScreen(
                         )
                     ) {
                         Column(
-                            modifier = Modifier.padding(16.dp)
+                            modifier = Modifier.padding(8.dp)
                         ) {
-                            Text(
-                                "處理成功",
-                                style = MaterialTheme.typography.titleMedium
-                            )
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Text(
+                                    "處理成功",
+                                    style = MaterialTheme.typography.titleMedium
+                                )
+                                IconButton(onClick = { viewModel.clearProcessResult()  }) {
+                                    Icon(
+                                        imageVector = Icons.Default.Close,
+                                        contentDescription = "關閉"
+                                    )
+                                }
+                            }
                             Text("行李條碼: ${result.bsm.bagTagNumber}")
-                            Text("航班: ${result.bsm.flightNumber}")
-                            Text("目的地: ${result.bsm.destination}")
+//                    Text("航班: ${result.bsm.flightNumber}")
+//                    Text("目的地: ${result.bsm.destination}")
                         }
                     }
                 }
@@ -135,10 +148,22 @@ fun BaggageInputScreen(
                         Column(
                             modifier = Modifier.padding(16.dp)
                         ) {
-                            Text(
-                                "處理失敗",
-                                style = MaterialTheme.typography.titleMedium
-                            )
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Text(
+                                    "處理失敗",
+                                    style = MaterialTheme.typography.titleMedium
+                                )
+                                IconButton(onClick = { viewModel.clearProcessResult() }) {
+                                    Icon(
+                                        imageVector = Icons.Default.Close,
+                                        contentDescription = "關閉"
+                                    )
+                                }
+                            }
                             Text(result.message)
                         }
                     }
@@ -253,16 +278,16 @@ fun BSMItem(bsm: BSM) {
                 style = MaterialTheme.typography.bodyMedium,
                 fontWeight = FontWeight.Medium
             )
-            Text(
-                text = "航班: ${bsm.flightNumber} | 目的地: ${bsm.destination}",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-            Text(
-                text = "旅客: ${bsm.passengerName}",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
+//            Text(
+//                text = "航班: ${bsm.flightNumber} | 目的地: ${bsm.destination}",
+//                style = MaterialTheme.typography.bodySmall,
+//                color = MaterialTheme.colorScheme.onSurfaceVariant
+//            )
+//            Text(
+//                text = "旅客: ${bsm.passengerName}",
+//                style = MaterialTheme.typography.bodySmall,
+//                color = MaterialTheme.colorScheme.onSurfaceVariant
+//            )
         }
         Icon(
             imageVector = Icons.Filled.KeyboardArrowRight,

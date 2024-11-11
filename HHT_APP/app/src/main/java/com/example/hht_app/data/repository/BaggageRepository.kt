@@ -58,11 +58,11 @@ class BaggageRepository @Inject constructor(
     //insert dummy data for development
     suspend fun insertDummyData() {
         val dummyData = listOf(
-            BSM("1234567890125", "CI102", "JFK", "Tony Stark"),
-            BSM("1234567890124", "CI101", "NRT", "Peter Parker"),
-            BSM("1234567890123", "CI100", "TPE", "John Doe"),
-            BSM("2234567890122", "CI200", "HKG", "Jane Smith"),
-            BSM("3234567890121", "CI300", "NRT", "Mary Johnson")
+            BSM("B01", "CI102", "JFK", "Tony Stark"),
+            BSM("B02", "CI101", "NRT", "Peter Parker"),
+            BSM("B03", "CI100", "TPE", "John Doe"),
+            BSM("B04", "CI200", "HKG", "Jane Smith"),
+            BSM("B05", "CI300", "NRT", "Mary Johnson")
         )
         insertBSMList(dummyData)
     }
